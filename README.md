@@ -11,4 +11,4 @@ This project is complete.
 ## Links
 
 - [Itch.io | DragunWF](https://dragunwf.itch.io/)
-- [Link to Game](https://dragunwf.itch.io/the-red-mage-beginners-journey)
+- [Link to the Game](https://dragunwf.itch.io/the-red-mage-beginners-journey)
