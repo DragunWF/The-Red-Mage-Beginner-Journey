@@ -1,0 +1,170 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Characters/Bosses/Level 5 Boss/Lv5Boss.gd" type="Script" id=1]
+[ext_resource path="res://User Interface/Kenney Pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Characters/Enemies/Purple Goblin/Purple Goblin.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Enemies/Purple Goblin/walk 1.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Enemies/Purple Goblin/walk 2.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Enemies/Purple Goblin/walk 3.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Enemies/Purple Goblin/walk 4.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Enemies/Goblin/Goblin.png" type="Texture" id=8]
+[ext_resource path="res://Characters/Enemies/Goblin/idle.png" type="Texture" id=9]
+[ext_resource path="res://Characters/Enemies/Red Goblin/Red Goblin.png" type="Texture" id=10]
+[ext_resource path="res://Characters/Enemies/Red Goblin/walk 1.png" type="Texture" id=11]
+[ext_resource path="res://Characters/Enemies/Red Goblin/walk 2.png" type="Texture" id=12]
+[ext_resource path="res://Characters/Enemies/Red Goblin/walk 3.png" type="Texture" id=13]
+[ext_resource path="res://Characters/Enemies/Red Goblin/walk 4.png" type="Texture" id=14]
+[ext_resource path="res://Characters/Enemies/Blue Goblin/Walk/Walk 1.png" type="Texture" id=15]
+[ext_resource path="res://Characters/Enemies/Blue Goblin/Walk/Walk 4.png" type="Texture" id=16]
+[ext_resource path="res://Characters/Enemies/Blue Goblin/Walk/Walk 5.png" type="Texture" id=17]
+[ext_resource path="res://Characters/Enemies/Blue Goblin/Walk/Walk 6.png" type="Texture" id=18]
+[ext_resource path="res://Characters/Enemies/Blue Goblin/Walk/Walk 7.png" type="Texture" id=19]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 1.png" type="Texture" id=20]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 2.png" type="Texture" id=21]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 3.png" type="Texture" id=22]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 4.png" type="Texture" id=23]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 5.png" type="Texture" id=24]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 6.png" type="Texture" id=25]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 7.png" type="Texture" id=26]
+[ext_resource path="res://Characters/Enemies/Goblin/Death/Death 8.png" type="Texture" id=27]
+[ext_resource path="res://Audio/Jump.wav" type="AudioStream" id=28]
+[ext_resource path="res://Audio/laser3.ogg" type="AudioStream" id=29]
+[ext_resource path="res://Audio/Damage.wav" type="AudioStream" id=30]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Purple",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Green",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Red",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Blue",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "Death",
+"speed": 7.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.2, 31 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 18.427, 30.2962 )
+
+[node name="Lv5Boss" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BossHealth" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/BossHealth"]
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 14.0
+theme = SubResource( 7 )
+text = "Boss Health"
+align = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/BossHealth"]
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -68.0
+margin_top = 14.0
+margin_right = 68.0
+margin_bottom = 38.0
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+value = 100.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "Green"
+frame = 1
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -2.2, 0.86 )
+shape = SubResource( 2 )
+
+[node name="ActivationTime" type="Timer" parent="."]
+
+[node name="ModeSwitchTimeRed" type="Timer" parent="."]
+
+[node name="ModeSwitchTimePurple" type="Timer" parent="."]
+
+[node name="ModeSwitchTimeBlue" type="Timer" parent="."]
+
+[node name="JumpTime" type="Timer" parent="."]
+
+[node name="ShootTime" type="Timer" parent="."]
+
+[node name="BossOpenDoorTime" type="Timer" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 28 )
+bus = "Lower Volume"
+
+[node name="BlastSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 29 )
+bus = "Lower Volume"
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 30 )
+bus = "Lower Volume"
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+visible = false
+position = Vector2( -2.1464, 0 )
+shape = SubResource( 3 )
+
+[node name="PositionLeft" type="Position2D" parent="."]
+position = Vector2( -32, 0 )
+
+[node name="PositionRight" type="Position2D" parent="."]
+position = Vector2( 32, 0 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="ActivationTime" to="." method="_on_ActivationTime_timeout"]
+[connection signal="timeout" from="ModeSwitchTimeRed" to="." method="_on_ModeSwitchTimeRed_timeout"]
+[connection signal="timeout" from="ModeSwitchTimePurple" to="." method="_on_ModeSwitchTimePurple_timeout"]
+[connection signal="timeout" from="ModeSwitchTimeBlue" to="." method="_on_ModeSwitchTimeBlue_timeout"]
+[connection signal="timeout" from="JumpTime" to="." method="_on_JumpTime_timeout"]
+[connection signal="timeout" from="ShootTime" to="." method="_on_ShootTime_timeout"]
+[connection signal="body_shape_entered" from="HitBox" to="." method="_on_HitBox_body_shape_entered"]

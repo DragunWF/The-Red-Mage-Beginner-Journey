@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://User Interface/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Characters/Player/Red Mage.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[node name="DialougeLayer" type="CanvasLayer"]
+layer = 100
+
+[node name="Dialouge" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RedMage" type="Sprite" parent="Dialouge"]
+position = Vector2( 72, 264 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="DialougeBox" type="ColorRect" parent="Dialouge"]
+margin_left = 40.0
+margin_top = 280.0
+margin_right = 576.0
+margin_bottom = 340.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Dialouge/DialougeBox"]
+margin_left = 80.0
+margin_right = 456.0
+margin_bottom = 64.0
+text = "Red Mage:
+This guy seems to be bigger than the other monsters
+i've encounter."
+
+[node name="Next" type="Button" parent="Dialouge"]
+modulate = Color( 0, 0.647059, 1, 1 )
+margin_left = 512.0
+margin_top = 314.0
+margin_right = 555.0
+margin_bottom = 332.0
+text = "   Next   "
+
+[node name="Dialouge2" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RedMage" type="Sprite" parent="Dialouge2"]
+position = Vector2( 72, 264 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="DialougeBox" type="ColorRect" parent="Dialouge2"]
+margin_left = 40.0
+margin_top = 280.0
+margin_right = 576.0
+margin_bottom = 340.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Dialouge2/DialougeBox"]
+margin_left = 80.0
+margin_right = 456.0
+margin_bottom = 64.0
+text = "Red Mage:
+I must defeat him if i want to continue my journey
+for power."
+
+[node name="Next2" type="Button" parent="Dialouge2"]
+modulate = Color( 0, 0.647059, 1, 1 )
+margin_left = 512.0
+margin_top = 314.0
+margin_right = 555.0
+margin_bottom = 332.0
+text = "   Next   "
+
+[node name="Dialouge3" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RedMage" type="Sprite" parent="Dialouge3"]
+position = Vector2( 72, 264 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="DialougeBox" type="ColorRect" parent="Dialouge3"]
+margin_left = 40.0
+margin_top = 280.0
+margin_right = 576.0
+margin_bottom = 340.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Dialouge3/DialougeBox"]
+margin_left = 80.0
+margin_right = 456.0
+margin_bottom = 64.0
+text = "Red Mage:
+This will be quite challenging."
+
+[node name="Next3" type="Button" parent="Dialouge3"]
+modulate = Color( 0, 0.647059, 1, 1 )
+margin_left = 512.0
+margin_top = 314.0
+margin_right = 555.0
+margin_bottom = 332.0
+text = "   Next   "

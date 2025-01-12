@@ -1,0 +1,362 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://User Interface/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://User Interface/Main Menu.gd" type="Script" id=2]
+[ext_resource path="res://Audio/click1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Groove.wav" type="AudioStream" id=4]
+[ext_resource path="res://Characters/Player/Red Mage.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Player/Idle.png" type="Texture" id=6]
+[ext_resource path="res://TileSets/Grass/GrassTiles.tres" type="TileSet" id=7]
+[ext_resource path="res://Backgrounds/Sky Blue/Clouds.png" type="Texture" id=8]
+[ext_resource path="res://Backgrounds/Sky Blue/Sky.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Main Menu" type="Control"]
+pause_mode = 2
+modulate = Color( 1, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Credits" type="Control" parent="."]
+modulate = Color( 0, 1, 1, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 320.0
+margin_right = -460.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 156.0
+margin_bottom = 16.0
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+margin_right = 152.0
+margin_bottom = 12.0
+text = "Game Created by: The Animator"
+
+[node name="Prologue" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 6 )
+
+[node name="Content" type="CenterContainer" parent="Prologue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Prologue/Content"]
+margin_left = 169.0
+margin_top = 134.0
+margin_right = 450.0
+margin_bottom = 206.0
+text = "There was once a Red Mage trained in Magic, A Red Mage
+who desires more power. One day he went ventured out
+to meet another mage who also had similar desires. On
+he's adventure to reach the other mage, he encountered
+monsters... Which marks start of his journey for power."
+align = 1
+
+[node name="ButtonContainer" type="CenterContainer" parent="Prologue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 100.0
+
+[node name="StartGame" type="Button" parent="Prologue/ButtonContainer"]
+margin_left = 276.0
+margin_top = 111.0
+margin_right = 344.0
+margin_bottom = 129.0
+text = "Start Game"
+
+[node name="StartMenu" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
+margin_left = 272.0
+margin_top = 139.0
+margin_right = 348.0
+margin_bottom = 201.0
+
+[node name="Start" type="Button" parent="StartMenu/VBoxContainer"]
+margin_right = 76.0
+margin_bottom = 18.0
+text = "Start Game"
+
+[node name="Select" type="Button" parent="StartMenu/VBoxContainer"]
+margin_top = 22.0
+margin_right = 76.0
+margin_bottom = 40.0
+text = "Select Level"
+
+[node name="Quit" type="Button" parent="StartMenu/VBoxContainer"]
+margin_top = 44.0
+margin_right = 76.0
+margin_bottom = 62.0
+text = "Quit"
+
+[node name="Title" type="CenterContainer" parent="."]
+editor/display_folded = true
+margin_top = 100.0
+margin_right = 620.0
+margin_bottom = 144.0
+
+[node name="Label" type="Label" parent="Title"]
+margin_left = 228.0
+margin_top = 16.0
+margin_right = 392.0
+margin_bottom = 28.0
+text = "The Red Mage: Beginner's Journey"
+align = 1
+
+[node name="SelectLevel" type="CenterContainer" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -280.0
+margin_top = -170.0
+margin_right = 280.0
+margin_bottom = 170.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectLevel"]
+margin_left = 256.0
+margin_top = 117.0
+margin_right = 304.0
+margin_bottom = 223.0
+
+[node name="Lv1" type="Button" parent="SelectLevel/VBoxContainer"]
+margin_right = 48.0
+margin_bottom = 18.0
+text = "Level 1"
+
+[node name="Lv2" type="Button" parent="SelectLevel/VBoxContainer"]
+margin_top = 22.0
+margin_right = 48.0
+margin_bottom = 40.0
+text = "Level 2"
+
+[node name="Lv3" type="Button" parent="SelectLevel/VBoxContainer"]
+margin_top = 44.0
+margin_right = 48.0
+margin_bottom = 62.0
+text = "Level 3"
+
+[node name="Lv4" type="Button" parent="SelectLevel/VBoxContainer"]
+margin_top = 66.0
+margin_right = 48.0
+margin_bottom = 84.0
+text = "Level 4"
+
+[node name="Lv5" type="Button" parent="SelectLevel/VBoxContainer"]
+margin_top = 88.0
+margin_right = 48.0
+margin_bottom = 106.0
+text = "Level 5"
+
+[node name="SelectLevelTitle" type="CenterContainer" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 96.0
+margin_bottom = -223.0
+
+[node name="Label" type="Label" parent="SelectLevelTitle"]
+margin_left = 277.0
+margin_top = 4.0
+margin_right = 343.0
+margin_bottom = 16.0
+text = "Select Level:"
+align = 1
+
+[node name="SelectReturn" type="CenterContainer" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 200.0
+margin_right = 4.0
+margin_bottom = -52.0
+mouse_filter = 2
+
+[node name="Return" type="Button" parent="SelectReturn"]
+margin_left = 253.0
+margin_top = 35.0
+margin_right = 371.0
+margin_bottom = 53.0
+text = "Return to Start Menu"
+
+[node name="TileBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Red Mage" type="AnimatedSprite" parent="TileBackground"]
+position = Vector2( 512, 176 )
+frames = SubResource( 7 )
+playing = true
+flip_h = true
+
+[node name="TileMap" type="TileMap" parent="TileBackground"]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 327717, 0, 0, 327718, 1, 0, 327719, 1, 0, 327720, 1, 0, 327721, 2, 0, 393253, 3, 0, 393254, 4, 0, 393255, 4, 0, 393256, 4, 0, 393257, 5, 0, 458789, 3, 0, 458790, 4, 0, 458791, 4, 0, 458792, 4, 0, 458793, 5, 0, 524325, 3, 0, 524326, 4, 0, 524327, 4, 0, 524328, 4, 0, 524329, 5, 0, 589861, 3, 0, 589862, 4, 0, 589863, 4, 0, 589864, 4, 0, 589865, 5, 0, 655397, 3, 0, 655398, 4, 0, 655399, 4, 0, 655400, 4, 0, 655401, 5, 0, 720933, 3, 0, 720934, 4, 0, 720935, 4, 0, 720936, 4, 0, 720937, 5, 0, 786463, 0, 0, 786464, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 786468, 1, 0, 786469, 10, 0, 786470, 4, 0, 786471, 4, 0, 786472, 4, 0, 786473, 5, 0, 851999, 3, 0, 852000, 4, 0, 852001, 4, 0, 852002, 4, 0, 852003, 4, 0, 852004, 4, 0, 852005, 4, 0, 852006, 4, 0, 852007, 4, 0, 852008, 4, 0, 852009, 5, 0, 917505, 0, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 2, 0, 917535, 3, 0, 917536, 4, 0, 917537, 4, 0, 917538, 4, 0, 917539, 4, 0, 917540, 4, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0, 917544, 4, 0, 917545, 5, 0, 983041, 3, 0, 983042, 4, 0, 983043, 4, 0, 983044, 4, 0, 983045, 5, 0, 983071, 3, 0, 983072, 4, 0, 983073, 4, 0, 983074, 4, 0, 983075, 4, 0, 983076, 4, 0, 983077, 4, 0, 983078, 4, 0, 983079, 4, 0, 983080, 4, 0, 983081, 5, 0, 1048577, 3, 0, 1048578, 4, 0, 1048579, 4, 0, 1048580, 4, 0, 1048581, 5, 0, 1048607, 3, 0, 1048608, 4, 0, 1048609, 4, 0, 1048610, 4, 0, 1048611, 4, 0, 1048612, 4, 0, 1048613, 4, 0, 1048614, 4, 0, 1048615, 4, 0, 1048616, 4, 0, 1048617, 5, 0, 1179647, 0, 0, 1114112, 1, 0, 1114113, 10, 0, 1114114, 4, 0, 1114115, 4, 0, 1114116, 4, 0, 1114117, 9, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1114142, 1, 0, 1114143, 10, 0, 1114144, 4, 0, 1114145, 4, 0, 1114146, 4, 0, 1114147, 4, 0, 1114148, 4, 0, 1114149, 4, 0, 1114150, 4, 0, 1114151, 4, 0, 1114152, 4, 0, 1114153, 5, 0, 1245183, 3, 0, 1179648, 4, 0, 1179649, 4, 0, 1179650, 4, 0, 1179651, 4, 0, 1179652, 4, 0, 1179653, 4, 0, 1179654, 4, 0, 1179655, 4, 0, 1179656, 4, 0, 1179657, 4, 0, 1179658, 4, 0, 1179659, 4, 0, 1179660, 4, 0, 1179661, 4, 0, 1179662, 4, 0, 1179663, 4, 0, 1179664, 4, 0, 1179665, 4, 0, 1179666, 4, 0, 1179667, 4, 0, 1179668, 4, 0, 1179669, 4, 0, 1179670, 4, 0, 1179671, 4, 0, 1179672, 4, 0, 1179673, 4, 0, 1179674, 4, 0, 1179675, 4, 0, 1179676, 4, 0, 1179677, 4, 0, 1179678, 4, 0, 1179679, 4, 0, 1179680, 4, 0, 1179681, 4, 0, 1179682, 4, 0, 1179683, 4, 0, 1179684, 4, 0, 1179685, 4, 0, 1179686, 4, 0, 1179687, 4, 0, 1179688, 4, 0, 1179689, 5, 0, 1310719, 3, 0, 1245184, 4, 0, 1245185, 4, 0, 1245186, 4, 0, 1245187, 4, 0, 1245188, 4, 0, 1245189, 4, 0, 1245190, 4, 0, 1245191, 4, 0, 1245192, 4, 0, 1245193, 4, 0, 1245194, 4, 0, 1245195, 4, 0, 1245196, 4, 0, 1245197, 4, 0, 1245198, 4, 0, 1245199, 4, 0, 1245200, 4, 0, 1245201, 4, 0, 1245202, 4, 0, 1245203, 4, 0, 1245204, 4, 0, 1245205, 4, 0, 1245206, 4, 0, 1245207, 4, 0, 1245208, 4, 0, 1245209, 4, 0, 1245210, 4, 0, 1245211, 4, 0, 1245212, 4, 0, 1245213, 4, 0, 1245214, 4, 0, 1245215, 4, 0, 1245216, 4, 0, 1245217, 4, 0, 1245218, 4, 0, 1245219, 4, 0, 1245220, 4, 0, 1245221, 4, 0, 1245222, 4, 0, 1245223, 4, 0, 1245224, 4, 0, 1245225, 5, 0, 1376255, 3, 0, 1310720, 4, 0, 1310721, 4, 0, 1310722, 4, 0, 1310723, 4, 0, 1310724, 4, 0, 1310725, 4, 0, 1310726, 4, 0, 1310727, 4, 0, 1310728, 4, 0, 1310729, 4, 0, 1310730, 4, 0, 1310731, 4, 0, 1310732, 4, 0, 1310733, 4, 0, 1310734, 4, 0, 1310735, 4, 0, 1310736, 4, 0, 1310737, 4, 0, 1310738, 4, 0, 1310739, 4, 0, 1310740, 4, 0, 1310741, 4, 0, 1310742, 4, 0, 1310743, 4, 0, 1310744, 4, 0, 1310745, 4, 0, 1310746, 4, 0, 1310747, 4, 0, 1310748, 4, 0, 1310749, 4, 0, 1310750, 4, 0, 1310751, 4, 0, 1310752, 4, 0, 1310753, 4, 0, 1310754, 4, 0, 1310755, 4, 0, 1310756, 4, 0, 1310757, 4, 0, 1310758, 4, 0, 1310759, 4, 0, 1310760, 4, 0, 1310761, 5, 0, 1441791, 3, 0, 1376256, 4, 0, 1376257, 4, 0, 1376258, 4, 0, 1376259, 4, 0, 1376260, 4, 0, 1376261, 4, 0, 1376262, 4, 0, 1376263, 4, 0, 1376264, 4, 0, 1376265, 4, 0, 1376266, 4, 0, 1376267, 4, 0, 1376268, 4, 0, 1376269, 4, 0, 1376270, 4, 0, 1376271, 4, 0, 1376272, 4, 0, 1376273, 4, 0, 1376274, 4, 0, 1376275, 4, 0, 1376276, 4, 0, 1376277, 4, 0, 1376278, 4, 0, 1376279, 4, 0, 1376280, 4, 0, 1376281, 4, 0, 1376282, 4, 0, 1376283, 4, 0, 1376284, 4, 0, 1376285, 4, 0, 1376286, 4, 0, 1376287, 4, 0, 1376288, 4, 0, 1376289, 4, 0, 1376290, 4, 0, 1376291, 4, 0, 1376292, 4, 0, 1376293, 4, 0, 1376294, 4, 0, 1376295, 4, 0, 1376296, 4, 0, 1376297, 5, 0, 1507327, 3, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 4, 0, 1441798, 4, 0, 1441799, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441824, 4, 0, 1441825, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1441828, 4, 0, 1441829, 4, 0, 1441830, 4, 0, 1441831, 4, 0, 1441832, 4, 0, 1441833, 5, 0, 1572863, 6, 0, 1507328, 7, 0, 1507329, 7, 0, 1507330, 7, 0, 1507331, 7, 0, 1507332, 7, 0, 1507333, 7, 0, 1507334, 7, 0, 1507335, 7, 0, 1507336, 7, 0, 1507337, 7, 0, 1507338, 7, 0, 1507339, 7, 0, 1507340, 7, 0, 1507341, 7, 0, 1507342, 7, 0, 1507343, 7, 0, 1507344, 7, 0, 1507345, 7, 0, 1507346, 7, 0, 1507347, 7, 0, 1507348, 7, 0, 1507349, 7, 0, 1507350, 7, 0, 1507351, 7, 0, 1507352, 7, 0, 1507353, 7, 0, 1507354, 7, 0, 1507355, 7, 0, 1507356, 7, 0, 1507357, 7, 0, 1507358, 7, 0, 1507359, 7, 0, 1507360, 7, 0, 1507361, 7, 0, 1507362, 7, 0, 1507363, 7, 0, 1507364, 7, 0, 1507365, 7, 0, 1507366, 7, 0, 1507367, 7, 0, 1507368, 7, 0, 1507369, 8, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+
+[node name="1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 100, 0 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 200, 0 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 300, 0 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 400, 0 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="6" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 500, 0 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 600, 0 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="8" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="9" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 100, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="10" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 200, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="11" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 300, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="12" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 400, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="13" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 500, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="14" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 600, 100 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="15" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 200 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="16" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 96, 200 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="17" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 196, 200 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="18" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 296, 200 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="19" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 396, 200 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="20" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 500, 200 )
+texture = ExtResource( 9 )
+centered = false
+[connection signal="pressed" from="Prologue/ButtonContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/Select" to="." method="_on_Select_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="SelectLevel/VBoxContainer/Lv1" to="." method="_on_Lv1_pressed"]
+[connection signal="pressed" from="SelectLevel/VBoxContainer/Lv2" to="." method="_on_Lv2_pressed"]
+[connection signal="pressed" from="SelectLevel/VBoxContainer/Lv3" to="." method="_on_Lv3_pressed"]
+[connection signal="pressed" from="SelectLevel/VBoxContainer/Lv4" to="." method="_on_Lv4_pressed"]
+[connection signal="pressed" from="SelectLevel/VBoxContainer/Lv5" to="." method="_on_Lv5_pressed"]
+[connection signal="pressed" from="SelectReturn/Return" to="." method="_on_Return_pressed"]
